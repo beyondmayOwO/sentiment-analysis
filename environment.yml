@@ -36,4 +36,11 @@ dependencies:
   - wheel=0.44.0
   - xz=5.4.6
   - zlib=1.2.13
+  - pip:
+      - ibm-cloud-sdk-core==3.22.1
+      - ibm-watson==9.0.0
+      - pyjwt==2.10.1
+      - python-dateutil==2.9.0.post0
+      - six==1.17.0
+      - websocket-client==1.8.0
 prefix: /home/itsmay/miniconda3/envs/sentiment_analysis
