@@ -7,9 +7,6 @@ load_dotenv('ibm-credentials.env')
 API_KEY = os.getenv("NATURAL_LANGUAGE_UNDERSTANDING_APIKEY")
 API_URL = os.getenv("NATURAL_LANGUAGE_UNDERSTANDING_URL")
 
-# print(API_KEY)
-# print(API_URL)
-
 def sentiment_analyzer(text_to_analyse):
     url = f"{API_URL}/v1/analyze?version=2019-07-12"
     myobj = {
@@ -21,9 +18,13 @@ def sentiment_analyzer(text_to_analyse):
             }
         }
     }
-    headers = {
+    header = {
         "Content-Type": "application/json"
     }
-    response = requests.post(url, json=myobj, headers=headers, auth=('apikey', API_KEY))
+    response = requests.post(url, json=myobj, headers=header, auth=('apikey', API_KEY))
 
-    return response.json()
+    # Extract score and label
+    dict_response = response.json()
+    score = dict_response['sentiment']['document']['score']
+    label = dict_response['sentiment']['document']['label']
+    return {"Score": score, "Label": label}
