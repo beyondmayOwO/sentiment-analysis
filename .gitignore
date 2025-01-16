@@ -6,3 +6,6 @@ __pycache__/
 # Conda environment cache files
 *.conda
 *.tar.bz2
+
+# Environment file for api
+*.env
