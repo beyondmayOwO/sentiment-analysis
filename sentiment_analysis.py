@@ -1,11 +1,29 @@
-import requests
+import requests, os
+from dotenv import load_dotenv
 
-# def sentiment_analyzer(text_to_analyse):
-#     url = 'https://sn-watson-sentiment-bert.labs.skills.network/v1/watson.runtime.nlp.v1/NlpService/SentimentPredict'
-#     myobj = {"raw_document": {"text": text_to_analyse}}
-#     header = {"grpc-metadata-mm-model-id": "sentiment_aggregated-bert-workflow_lang_multi_stock"}
-#     response = requests.post(url, json = myobj, headers = header)
-#     # print(f"Status Code: {response.status_code}")
-#     return response.text
+# Load the environment variables
+load_dotenv('ibm-credentials.env')
 
-# # sentiment_analyzer("I love this technology")
+API_KEY = os.getenv("NATURAL_LANGUAGE_UNDERSTANDING_APIKEY")
+API_URL = os.getenv("NATURAL_LANGUAGE_UNDERSTANDING_URL")
+
+# print(API_KEY)
+# print(API_URL)
+
+def sentiment_analyzer(text_to_analyse):
+    url = f"{API_URL}/v1/analyze?version=2019-07-12"
+    myobj = {
+        "text": text_to_analyse,
+        "features": {
+            "sentiment": {},
+            "keywords": {
+                "emotion": True
+            }
+        }
+    }
+    headers = {
+        "Content-Type": "application/json"
+    }
+    response = requests.post(url, json=myobj, headers=headers, auth=('apikey', API_KEY))
+
+    return response.json()

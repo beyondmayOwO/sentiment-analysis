@@ -1,11 +1,12 @@
 name: sentiment_analysis
 channels:
   - defaults
+  - conda-forge
   - https://repo.anaconda.com/pkgs/main
   - https://repo.anaconda.com/pkgs/r
 dependencies:
   - _libgcc_mutex=0.1
-  - _openmp_mutex=5.1
+  - _openmp_mutex=4.5
   - brotli-python=1.0.9
   - bzip2=1.0.8
   - ca-certificates=2024.12.31
@@ -15,16 +16,18 @@ dependencies:
   - idna=3.7
   - ld_impl_linux-64=2.40
   - libffi=3.4.4
-  - libgcc-ng=11.2.0
-  - libgomp=11.2.0
+  - libgcc=14.2.0
+  - libgcc-ng=14.2.0
+  - libgomp=14.2.0
   - libmpdec=4.0.0
   - libstdcxx-ng=11.2.0
   - libuuid=1.41.5
   - ncurses=6.4
-  - openssl=3.0.15
+  - openssl=3.4.0
   - pip=24.2
   - pysocks=1.7.1
   - python=3.13.1
+  - python-dotenv=1.0.1
   - python_abi=3.13
   - readline=8.2
   - requests=2.32.3
