@@ -1,4 +1,7 @@
-import requests, os
+"""Sentiment Analysis using Watson NLU API and extract score and label"""
+
+import os
+import requests
 from dotenv import load_dotenv
 
 # Load the environment variables
@@ -21,7 +24,7 @@ def sentiment_analyzer(text_to_analyse):
     header = {
         "Content-Type": "application/json"
     }
-    response = requests.post(url, json=myobj, headers=header, auth=('apikey', API_KEY))
+    response = requests.post(url, json=myobj, headers=header, auth=('apikey', API_KEY), timeout=10)
 
     dict_response = response.json()
 

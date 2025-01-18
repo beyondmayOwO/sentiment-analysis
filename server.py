@@ -1,3 +1,5 @@
+"""Flask server to grab the user input from the client side and return the score and label"""
+
 from flask import Flask, render_template, request
 from SentimentAnalysis.sentiment_analysis import sentiment_analyzer
 
