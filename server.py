@@ -10,6 +10,11 @@ def sent_analyzer():
     # Get the input that was sent as the query parameter from the client
     text_to_analyze = request.args.get('textToAnalyze')
 
+    # Check if the input is empty
+    if text_to_analyze == '':
+        return "Empty input! Please enter some text."
+    
+    # Call the function only if the input is not empty
     result = sentiment_analyzer(text_to_analyze)
     label = result['Label']
     score = result['Score']
