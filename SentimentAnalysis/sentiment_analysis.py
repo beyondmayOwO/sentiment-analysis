@@ -23,8 +23,18 @@ def sentiment_analyzer(text_to_analyse):
     }
     response = requests.post(url, json=myobj, headers=header, auth=('apikey', API_KEY))
 
-    # Extract score and label
     dict_response = response.json()
-    score = dict_response['sentiment']['document']['score']
-    label = dict_response['sentiment']['document']['label']
+
+    # Initialize the score and label
+    score = None
+    label = None
+
+    # Extract score and label and handle the error
+    if response.status_code == 200:
+        score = dict_response['sentiment']['document']['score']
+        label = dict_response['sentiment']['document']['label']
+    elif response.status_code == 500:
+        score = None
+        label = None
+
     return {"Score": score, "Label": label}
