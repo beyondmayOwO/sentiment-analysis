@@ -12,8 +12,8 @@ Sentiment analysis using IBM Watson NLU API. It can detect the sentiment of the 
 - If there is no input, it will displays 'Empty input'
 
 ## What I Learned
-- Created an AI based sentiment analysis application using Watson NLP embedded libraries.
-- Formatted the output received from the Watson NLP library function to extract relevant information from it.
+- Created an AI based sentiment analysis application using Watson NLU API.
+- Formatted the output received from the Watson NLU API to extract relevant information from it.
 - Packaged the application and made it importable to any python code for usage.
 - Ran unit tests on the application and checked the validity of its outputs for different inputs.
 - Deployed the application using Flask framework.
